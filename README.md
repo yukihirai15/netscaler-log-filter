@@ -1,5 +1,5 @@
 # 🧠 NetScaler Log Filter v2.0
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
 A Python-based automation script to extract and filter key events from **NetScaler logs**.  
 Built for TAC engineers to quickly identify SSL, STA, and authentication-related issues.
@@ -31,5 +31,6 @@ netscaler-log-filter/
 Python 3.8 or higher
 
 Modules: argparse, datetime, re, os
+
 
 (Optional) tqdm and colorama for UI enhancements
