@@ -1,0 +1,15 @@
+# Core dependencies
+argparse
+datetime
+
+# Optional (for future versions)
+tqdm        # Progress bar for long logs
+colorama    # Colored console output
+
+
+
+
+
+
+
+####### pip install -r requirements.txt
