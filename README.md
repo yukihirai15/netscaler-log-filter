@@ -34,3 +34,27 @@ Modules: argparse, datetime, re, os
 
 
 (Optional) tqdm and colorama for UI enhancements
+
+---
+
+## 📖 Usage
+
+### Basic keyword search
+python nslog_filter.py --path .\ns.log --keywords "SSL"
+
+### Search multiple keywords
+python nslog_filter.py --path .\ns.log --keywords "SSL,error"
+
+### Regex search
+python nslog_filter.py --path .\ns.log --keywords "SSL.*failed" --regex
+
+### Exclude noisy keywords
+python nslog_filter.py --path .\ns.log --keywords "SSL,error" --exclude "DEBUG,INFO"
+
+### Time-range filtering
+python nslog_filter.py --path .\ns.log --keywords "SSL,error" --since "Oct 28 10:00:00" --until "Oct 28 18:00:00"
+
+### Combined: regex + exclusion + time filter + custom output
+python nslog_filter.py --path .\ns.log --keywords "SSL.*failed|cert.*error" --regex --exclude "DEBUG" --since "Oct 28 00:00:00" --until "Oct 29 00:00:00" --output filtered_ssl_errors.txt
+
+See `commands.txt` for the full command reference, including supported keywords (SSL, AUTH, LDAP, RADIUS, SAML, GSLB, AAA, and more).
