@@ -1,0 +1,132 @@
+############################################################
+# NetScaler Log Filter v2.0 - Command Reference
+############################################################
+
+# Display help menu
+python nslog_filter_v2.py --help
+
+
+============================================================
+BASIC KEYWORD SEARCH
+============================================================
+
+# Search for a single keyword
+python nslog_filter_v2.py --path .\ns.log --keywords "SSL"
+
+# Search for multiple keywords
+python nslog_filter_v2.py --path .\ns.log --keywords "SSL,error"
+
+# Search all .log files in a directory
+python nslog_filter_v2.py --path "C:\NetScaler\logs" --keywords "SSL,error"
+
+
+============================================================
+CUSTOM OUTPUT FILE
+============================================================
+
+# Save results to a custom file
+python nslog_filter_v2.py --path .\ns.log --keywords "SSL" --output ssl_results.txt
+
+
+============================================================
+REGEX SEARCH
+============================================================
+
+# Enable regex mode
+python nslog_filter_v2.py --path .\ns.log --keywords "SSL.*failed" --regex
+
+# Match either SSL failures or certificate errors
+python nslog_filter_v2.py --path .\ns.log --keywords "SSL.*failed|cert.*error" --regex
+
+# Match timeout or connection reset
+python nslog_filter_v2.py --path .\ns.log --keywords "timeout|reset" --regex
+
+
+============================================================
+EXCLUDE KEYWORDS
+============================================================
+
+# Exclude DEBUG and INFO messages
+python nslog_filter_v2.py --path .\ns.log --keywords "SSL,error" --exclude "DEBUG,INFO"
+
+# Exclude NOTICE messages
+python nslog_filter_v2.py --path .\ns.log --keywords "SSL" --exclude "NOTICE"
+
+
+============================================================
+TIME FILTERING
+============================================================
+
+# Extract logs after a specific time
+python nslog_filter_v2.py --path .\ns.log --keywords "SSL" --since "Oct 28 10:00:00"
+
+# Extract logs until a specific time
+python nslog_filter_v2.py --path .\ns.log --keywords "SSL" --until "Oct 28 18:00:00"
+
+# Extract logs between two timestamps
+python nslog_filter_v2.py --path .\ns.log --keywords "SSL,error" --since "Oct 28 10:00:00" --until "Oct 28 18:00:00"
+
+
+============================================================
+COMBINED EXAMPLES
+============================================================
+
+# Regex + time filter
+python nslog_filter_v2.py --path .\ns.log --keywords "SSL.*failed" --regex --since "Oct 28 00:00:00"
+
+# Keyword search with exclusions
+python nslog_filter_v2.py --path .\ns.log --keywords "SSL,error" --exclude "DEBUG,INFO"
+
+# Regex + exclusion + time filter + custom output
+python nslog_filter_v2.py --path .\ns.log --keywords "SSL.*failed|cert.*error" --regex --exclude "DEBUG" --since "Oct 28 00:00:00" --until "Oct 29 00:00:00" --output filtered_ssl_errors.txt
+
+
+============================================================
+EXAMPLE KEYWORDS
+============================================================
+
+SSL
+SSLVPN
+STA
+AUTH
+LDAP
+RADIUS
+SAML
+CERT
+OCSP
+CRL
+ERROR
+FAIL
+TIMEOUT
+RESET
+DOWN
+UP
+TCP
+HTTP
+HTTPS
+GSLB
+LB
+VPN
+AAA
+
+
+============================================================
+PROJECT INFORMATION
+============================================================
+
+Project: NetScaler Log Filter v2.0
+
+Description:
+Python automation tool for extracting and analyzing NetScaler logs using
+keyword, regex, exclusion, and time-based filtering.
+
+Author:
+Prashant Bisht
+
+License:
+MIT License
+
+Repository:
+https://github.com/<your-username>/netscaler-log-filter
+
+############################################################
